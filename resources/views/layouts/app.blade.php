@@ -76,7 +76,7 @@
                 <div class="col-lg-4">
                     <ul class='list-group'>
                         <li class='list-group-item'>
-                            <a href="#">Create Post</a>
+                            <a href="{{route('post')}}">Create Post</a>
                         </li>
                         <li class='list-group-item'>
                             <a href="#">delete Post</a>

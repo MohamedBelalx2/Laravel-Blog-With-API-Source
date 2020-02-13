@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Posts;
 class PostsController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.posts.index');
     }
 
     /**
@@ -34,7 +34,31 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Posts();
+        //dd($request->img);
+
+
+        $img = $request->img;
+
+
+
+        $img_name = time().$img->getClientOriginalName();
+
+
+
+        $img->move('uploads/posts',$img_name);
+
+        //$post->img = 'dsadsa.png';
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->author = $request->author;
+
+        $post->img = 'uploads/posts' . $img_name;
+
+        $post->save();
+
+        //return redirect()->back();
+
     }
 
     /**
