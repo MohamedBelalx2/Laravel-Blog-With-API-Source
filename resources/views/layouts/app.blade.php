@@ -70,8 +70,28 @@
                 </div>
             </div>
         </nav>
+       
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <ul class='list-group'>
+                        <li class='list-group-item'>
+                            <a href="#">Create Post</a>
+                        </li>
+                        <li class='list-group-item'>
+                            <a href="#">delete Post</a>
+                        </li>
+                    </ul>
+                </div>
 
-        @yield('content')
+                <div class="col-lg-8">
+                @yield('content')
+                </div>
+            </div>
+        </div>
+
+        
+        
     </div>
 
     <!-- Scripts -->
