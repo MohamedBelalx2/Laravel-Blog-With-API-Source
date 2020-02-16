@@ -13,7 +13,13 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('admin.posts.index');
+        return view('admin.posts.create');
+    }
+
+    public function all()
+    {
+        $posts = Posts::all();
+        return view('admin.posts.index')->with('posts',$posts);
     }
 
     /**
@@ -53,11 +59,11 @@ class PostsController extends Controller
         $post->body = $request->body;
         $post->author = $request->author;
 
-        $post->img = 'uploads/posts' . $img_name;
+        $post->img = 'uploads/posts/' . $img_name;
 
         $post->save();
 
-        //return redirect()->back();
+        return redirect()->route('indexPost');
 
     }
 

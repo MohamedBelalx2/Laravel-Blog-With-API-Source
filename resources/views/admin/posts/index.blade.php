@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 
 <div class="panel panel-default">
@@ -13,36 +12,32 @@
                     @endif
                     
                
-                    <form action="{{route('post_insert')}}" method='post' enctype="multipart/form-data">
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            <label for="">Title</label>
-                            <input name='title' type="text" class="form-control" placeholder='Enter Post Title' required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Image</label>
-                            <input name='img' type="file" class="form-control" placeholder='Enter Post Title' required>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="">Body</label>
-                            <textarea class='form-control' name="body" id="" cols="30" rows="10"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Author</label>
-                            <input name='author' type="text" class="form-control" placeholder='Enter Author Name' required>
-                        </div>
-
-                        <input type="submit" class='btn btn-primary btn-block'>
-
-                    
-                    </form>
-                
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Img</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Trash</th>
+                            <th scope="col">Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($posts as $p)
+                            <tr>
+                                <th scope="row">{{$p->id}}</th>
+                                <td>{{$p->title}}</td>
+                                <td><img src="{{asset($p->img)}}" alt="this is image" width='50px'></td>
+                                <td>{{$p->author}}</td>
+                                <td><a href="" class='btn btn-danger'>Trash</a></td>
+                                <td><a href="#" class='btn btn-primary'>Update</a></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
 
-@endsection
+@stop
