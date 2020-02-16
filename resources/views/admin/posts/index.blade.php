@@ -31,7 +31,7 @@
                                 <td><img src="{{asset($p->img)}}" alt="this is image" width='50px'></td>
                                 <td>{{$p->author}}</td>
                                 <td><a href="" class='btn btn-danger'>Trash</a></td>
-                                <td><a href="#" class='btn btn-primary'>Update</a></td>
+                                <td><a href="{{route('PostsEdit',['id'=>$p->id])}}" class='btn btn-primary'>Update</a></td>
                             </tr>
                             @endforeach
                         </tbody>

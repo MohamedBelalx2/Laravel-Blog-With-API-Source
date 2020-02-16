@@ -86,7 +86,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Posts::findOrFail($id);
+        return view('admin.posts.update')->with('post',$post);
     }
 
     /**
@@ -98,7 +99,23 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Posts::findOrFail($id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->author = $request->author;
+
+        $img = $request->img;
+
+        $img_name = time().$img->getClientOriginalName();
+
+        $img->move('uploads/posts',$img_name);
+
+        $post->img = 'uploads/posts/' . $img_name;
+
+
+        $post->save();
+
+        return redirect()->route('indexPost');
     }
 
     /**
