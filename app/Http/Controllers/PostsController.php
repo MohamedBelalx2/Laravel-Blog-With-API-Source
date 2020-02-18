@@ -155,4 +155,12 @@ class PostsController extends Controller
 
         return redirect()->route('indexPost');
     }
+
+    // users
+
+    public function user()
+    {
+        $posts = Posts::all();
+        return view('main.posts')->with('posts',$posts);
+    }
 }
