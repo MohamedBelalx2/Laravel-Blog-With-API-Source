@@ -25,3 +25,5 @@ Route::get('/home/posts/edit/{id}',"PostsController@edit")->name('PostsEdit');
 Route::post('/home/posts/update/{id}',"PostsController@update")->name('Postsupdate');
 Route::get('/home/posts/trash/{id}',"PostsController@destroy")->name('PostsTrash');
 Route::get('/home/posts/trashed',"PostsController@trash")->name('PostsTrashed');
+Route::get('/home/posts/delete/{id}',"PostsController@kill")->name('PostsDelete');
+Route::get('/home/posts/restore/{id}',"PostsController@restore")->name('PostsRestore');

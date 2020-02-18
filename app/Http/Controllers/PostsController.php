@@ -139,4 +139,20 @@ class PostsController extends Controller
 
         return view('admin.posts.trashed')->with('trash',$post);
     }
+
+    public function kill($id)
+    {
+        $post = Posts::withTrashed()->where('id',$id);
+
+        $post->forceDelete();
+
+        return redirect()->back();
+    }
+
+    public function restore($id)
+    {
+        $post = Posts::withTrashed()->where('id',$id)->restore();
+
+        return redirect()->route('indexPost');
+    }
 }
