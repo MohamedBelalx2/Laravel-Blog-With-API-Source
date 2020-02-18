@@ -23,3 +23,5 @@ Route::post('/home/post/insert','PostsController@store')->name('post_insert');
 Route::get('/home/index',"PostsController@all")->name('indexPost');
 Route::get('/home/posts/edit/{id}',"PostsController@edit")->name('PostsEdit');
 Route::post('/home/posts/update/{id}',"PostsController@update")->name('Postsupdate');
+Route::get('/home/posts/trash/{id}',"PostsController@destroy")->name('PostsTrash');
+Route::get('/home/posts/trashed',"PostsController@trash")->name('PostsTrashed');

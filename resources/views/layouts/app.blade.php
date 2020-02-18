@@ -83,7 +83,7 @@
                         </li>
 
                         <li class='list-group-item'>
-                            <a href="#">Trashed Post</a>
+                            <a href="{{route('PostsTrashed')}}">Trashed Post</a>
                         </li>
 
 
