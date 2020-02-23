@@ -73,6 +73,9 @@
        
         <div class="container">
             <div class="row">
+                @auth
+
+                
                 <div class="col-lg-4">
                     <ul class='list-group'>
                         <li class='list-group-item'>
@@ -89,6 +92,8 @@
 
                     </ul>
                 </div>
+                
+                @endauth
 
                 <div class="col-lg-8">
                 @yield('content')

@@ -17,10 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 // admins
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/post','PostsController@index')->name('CreatePost');
 Route::post('/home/post/insert','PostsController@store')->name('post_insert');
-Route::get('/home/index',"PostsController@all")->name('indexPost');
+Route::get('/home/index',"PostsController@all")->name('indexPost')->middleware('Admin');
 Route::get('/home/posts/edit/{id}',"PostsController@edit")->name('PostsEdit');
 Route::post('/home/posts/update/{id}',"PostsController@update")->name('Postsupdate');
 Route::get('/home/posts/trash/{id}',"PostsController@destroy")->name('PostsTrash');
